@@ -1,0 +1,53 @@
+name: banking-agentic
+
+services:
+  api-gateway:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: banking-api-gateway
+    ports:
+      - "8000:8000"
+    environment:
+      INTENT_SERVICE_HOST: intent-service
+      INTENT_SERVICE_PORT: 50051
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:?Set OLLAMA_BASE_URL}
+      LLM_MODEL: ${LLM_MODEL:-gpt-oss:20b}
+    depends_on:
+      - intent-service
+    networks:
+      - public_net
+      - internal_net
+
+  intent-service:
+    build:
+      context: ./intent_service
+      dockerfile: Dockerfile
+    container_name: banking-intent-service
+    ports:
+      - "50051:50051"
+    environment:
+      INTENT_API_URL: ${INTENT_API_URL:?Set INTENT_API_URL}
+      GRPC_PORT: 50051
+    networks:
+      - internal_net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: banking-frontend
+    ports:
+      - "8502:8502"
+    environment:
+      API_BASE_URL: http://api-gateway:8000
+    depends_on:
+      - api-gateway
+    networks:
+      - public_net
+
+networks:
+  public_net:
+    name: banking_public_net
+  internal_net:
+    name: banking_internal_net

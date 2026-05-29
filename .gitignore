@@ -1,5 +1,26 @@
-# Created by venv; see https://docs.python.org/3/library/venv.html
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
 
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local configuration and secrets
+.env.*
+!.env.example
+
+# Local/generated project files
 references/
 GEMINI.md
 example_results.json
+
+# OS/editor files
+.DS_Store
+.idea/
+.vscode/

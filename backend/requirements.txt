@@ -1,0 +1,7 @@
+fastapi
+grpcio
+protobuf
+pydantic
+pydantic-settings
+requests
+uvicorn

@@ -1,0 +1,17 @@
+[
+  {
+    "message_id": "msg_01",
+    "customer_id": "c_100",
+    "message": "Tôi đã chuyển tiền từ hôm qua nhưng người nhận vẫn chưa nhận được."
+  },
+  {
+    "message_id": "msg_02",
+    "customer_id": "c_101",
+    "message": "Tài khoản của tôi tự nhiên bị trừ tiền, hình như bị hack rồi, khóa ngay giúp tôi!"
+  },
+  {
+    "message_id": "msg_03",
+    "customer_id": "c_102",
+    "message": "Tôi đăng ký phát hành thẻ vật lý mới mà hơn tuần rồi chưa thấy gửi tới."
+  }
+]
