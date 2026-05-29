@@ -13,7 +13,6 @@ env/
 
 # Local configuration and secrets
 .env.*
-!.env.example
 
 # Local/generated project files
 references/
